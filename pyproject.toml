@@ -1,0 +1,23 @@
+[project]
+name = "advent-of-code"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ruff>=0.8.1",
+    "typer>=0.15.1",
+]
+
+line-length = 120
+lint.select = [
+    "E",
+    "F",
+    "UP",
+    "I",
+]
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+docstring-code-format = true
