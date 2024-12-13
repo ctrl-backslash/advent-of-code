@@ -23,7 +23,7 @@ def dfs(grid: list[str], start: tuple[int, int], with_replacement: bool = False)
     return total
 
 
-def part1(input: list[str]):
+def part1(input: list[str], with_replacement: bool = False):
     trailheads = list()
     for r, row in enumerate(input):
         for c, elevation in enumerate(row):
@@ -32,18 +32,9 @@ def part1(input: list[str]):
 
     total = 0
     for trailhead in trailheads:
-        total += dfs(input, trailhead)
+        total += dfs(input, trailhead, with_replacement)
     return total
 
 
 def part2(input: list[str]):
-    trailheads = list()
-    for r, row in enumerate(input):
-        for c, elevation in enumerate(row):
-            if int(elevation) == 0:
-                trailheads.append((r, c))
-
-    total = 0
-    for trailhead in trailheads:
-        total += dfs(input, trailhead, True)
-    return total
+    return part1(input, True)

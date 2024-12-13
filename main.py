@@ -16,7 +16,11 @@ def main(
 ):
     date = f'dec_{date.removeprefix("dec_")}'
     if (
-        not (files := list(glob.glob(f'{date}/{input_file.removesuffix(".txt")}*.txt')))
+        not (files := list(glob.glob(f'{date}/{input_file.removesuffix(".txt")}.txt')))
+        and not (files := list(glob.glob(f'{input_file.removesuffix(".txt")}.txt')))
+        and not (
+            files := list(glob.glob(f'{date}/{input_file.removesuffix(".txt")}*.txt'))
+        )
         and not (files := list(glob.glob(f'{input_file.removesuffix(".txt")}*.txt')))
         and not (
             input_file.startswith('test')
